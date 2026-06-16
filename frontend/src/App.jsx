@@ -6,12 +6,12 @@ import Navbar from './components/Layout/Navbar';
 import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import ChangePassword from './components/Auth/ChangePassword';
-import AdminDashboard from './components/Admin/Dashboard';
+import AdminDashboard from './components/Admin/EnhancedDashboard';
 import UserList from './components/Admin/UserList';
 import StoreList from './components/Admin/StoreList';
 import AddUser from './components/Admin/AddUser';
 import AddStore from './components/Admin/AddStore';
-import StoreListing from './components/User/StoreListing';
+import StoreListing from './components/User/EnhancedStoreListing';
 import OwnerDashboard from './components/StoreOwner/OwnerDashboard';
 
 function App() {
