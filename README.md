@@ -13,7 +13,9 @@ A full-stack store rating platform where users can rate stores, admins manage us
 - [Tech Stack](#-tech-stack)
 - [Quick Start](#-quick-start)
 - [Installation](#-installation)
+- [Database Setup](#-database-setup)
 - [API Documentation](#-api-documentation)
+- [Project Structure](#-project-structure)
 - [Screenshots](#-screenshots)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -21,21 +23,24 @@ A full-stack store rating platform where users can rate stores, admins manage us
 ## ✨ Features
 
 ### 👑 System Administrator
-- **Dashboard** - Real-time statistics with charts
-- **User Management** - Add, view, filter, and sort users
-- **Store Management** - Add and manage stores
+- **Dashboard** - Real-time statistics with charts (Rating Distribution, Top Stores, Trends)
+- **User Management** - Add, view, filter, and sort users by Name, Email, Address, Role
+- **Store Management** - Add and manage stores with categories
 - **Analytics** - Rating distribution, top stores, activity feed
+- **Export Data** - Export users and stores data to CSV
 
 ### 👤 Normal User
 - **Authentication** - Register, login, change password
-- **Store Discovery** - Search, filter, and sort stores
+- **Store Discovery** - Search, filter by category, and sort stores
 - **Rating System** - Submit and update ratings (1-5 stars)
 - **Reviews** - Write reviews with ratings
+- **Store Details** - View complete store information with all reviews
+- **Grid/List View** - Toggle between grid and list view modes
 
 ### 🏢 Store Owner
 - **Dashboard** - View store performance
 - **Analytics** - Average rating and user feedback
-- **User Insights** - See who rated your store
+- **User Insights** - See who rated your store with their ratings
 
 ### ✅ Form Validations
 | Field | Validation |
@@ -49,11 +54,12 @@ A full-stack store rating platform where users can rate stores, admins manage us
 
 | Category | Technology |
 |----------|-----------|
-| Frontend | React 18, React Router 6, Axios, Recharts |
-| Backend | Node.js, Express.js, JWT, Bcrypt |
-| Database | MySQL 8.0 |
-| Styling | CSS3, Flexbox, Grid, Animations |
-| Testing | Jest (Coming Soon) |
+| **Frontend** | React 18, React Router 6, Axios, Recharts |
+| **Backend** | Node.js, Express.js, JWT, Bcrypt |
+| **Database** | MySQL 8.0 |
+| **Styling** | CSS3, Flexbox, Grid, Animations |
+| **Charts** | Recharts for data visualization |
+| **Security** | Helmet, CORS, Rate Limiting |
 
 ## 🚀 Quick Start
 
