@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 
 const EnhancedStoreListing = () => {
+  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const [categories, setCategories] = useState([]);
   const [filters, setFilters] = useState({
@@ -73,6 +75,10 @@ const EnhancedStoreListing = () => {
     if (rating === null || rating === undefined) return 0;
     const num = parseFloat(rating);
     return isNaN(num) ? 0 : num;
+  };
+
+  const handleViewDetails = (storeId) => {
+    navigate(`/store/${storeId}`);
   };
 
   const StoreCard = ({ store }) => {
@@ -157,7 +163,7 @@ const EnhancedStoreListing = () => {
           )}
           <button 
             className="btn btn-primary"
-            onClick={() => window.location.href = `/store/${store.id}`}
+            onClick={() => handleViewDetails(store.id)}
             style={{ width: '100%' }}
           >
             View Details
@@ -210,7 +216,7 @@ const EnhancedStoreListing = () => {
         </div>
         <button 
           className="btn btn-primary"
-          onClick={() => window.location.href = `/store/${store.id}`}
+          onClick={() => handleViewDetails(store.id)}
         >
           Rate Store
         </button>

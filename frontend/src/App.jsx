@@ -12,6 +12,7 @@ import StoreList from './components/Admin/StoreList';
 import AddUser from './components/Admin/AddUser';
 import AddStore from './components/Admin/AddStore';
 import StoreListing from './components/User/EnhancedStoreListing';
+import StoreDetails from './components/User/StoreDetails';
 import OwnerDashboard from './components/StoreOwner/OwnerDashboard';
 
 function App() {
@@ -20,15 +21,19 @@ function App() {
       <AuthProvider>
         <Navbar />
         <Routes>
+          {/* Public Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Navigate to="/login" />} />
           
+          {/* Protected Routes - All Users */}
           <Route path="/user/change-password" element={
-            <ProtectedRoute allowedRoles={['user', 'owner']}>
+            <ProtectedRoute allowedRoles={['user', 'owner', 'admin']}>
               <ChangePassword />
             </ProtectedRoute>
           } />
           
+          {/* Admin Routes */}
           <Route path="/admin/dashboard" element={
             <ProtectedRoute allowedRoles={['admin']}>
               <AdminDashboard />
@@ -55,19 +60,24 @@ function App() {
             </ProtectedRoute>
           } />
           
+          {/* User Routes */}
           <Route path="/user/stores" element={
             <ProtectedRoute allowedRoles={['user']}>
               <StoreListing />
             </ProtectedRoute>
           } />
+          <Route path="/store/:id" element={
+            <ProtectedRoute allowedRoles={['user']}>
+              <StoreDetails />
+            </ProtectedRoute>
+          } />
           
+          {/* Store Owner Routes */}
           <Route path="/owner/dashboard" element={
             <ProtectedRoute allowedRoles={['owner']}>
               <OwnerDashboard />
             </ProtectedRoute>
           } />
-          
-          <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </AuthProvider>
     </Router>
